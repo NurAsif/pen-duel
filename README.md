@@ -57,3 +57,4 @@ One player taps **Play online → Create room** and shares the 4-letter code. Fr
 3. Project settings থেকে Web app-এর config কপি করে `firebase-config.js`-এ বসাও।
 4. ফাইলগুলো GitHub-এ push করো এবং Settings → Pages থেকে `main` branch চালু করো।
 5. লিংকটা বন্ধুদের দাও। একজন "অনলাইনে খেলো → নতুন রুম খোলো" চাপে, বাকিরা কোড দিয়ে ঢোকে, হোস্ট খেলা শুরু করে।
+"# pen-duel" 
