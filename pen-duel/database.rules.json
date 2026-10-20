@@ -1,0 +1,24 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "lb": {
+      ".read": "auth != null",
+      "$uid": {
+        ".write": "auth != null && auth.uid === $uid",
+        ".validate": "newData.hasChildren(['name','g','w','p','k']) && newData.child('name').isString() && newData.child('name').val().length <= 14 && newData.child('g').isNumber() && newData.child('w').isNumber() && newData.child('p').isNumber() && newData.child('k').isNumber()"
+      }
+    },
+    "rooms": {
+      "$room": {
+        "peers": {
+          ".read": "auth != null",
+          "$pid": {
+            ".write": "auth != null",
+            ".validate": "newData.hasChildren()"
+          }
+        }
+      }
+    }
+  }
+}
