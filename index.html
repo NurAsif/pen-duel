@@ -126,11 +126,6 @@ input[type=text]::placeholder{color:rgba(244,241,230,.4)}
 #toast{position:fixed;left:50%;bottom:calc(64px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:rgba(10,18,15,.9);border:2px solid var(--chalk-dim);padding:8px 16px;border-radius:999px;font-size:14px;z-index:50;max-width:90vw;text-align:center}
 #nogl{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;background:var(--ink);z-index:60;font-size:18px}
 </style>
-<!-- ১. Firebase Core SDKs (v8) -->
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-
-<script src="firebase-config.js"></script>
 </head>
 <body>
 <canvas id="gl"></canvas>
@@ -1815,5 +1810,25 @@ setDesk(1); buildDemo(); applyLang(); refreshDeskFonts(); initData();
 requestAnimationFrame(frame);
 })();
 </script>
+<!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <!-- Firebase Config File (এটি মিসিং ছিল) -->
+  <script src="firebase-config.js"></script>
+
+  <!-- Global Firebase References for Game -->
+  <script>
+    if (typeof firebase !== 'undefined' && window.PD_FIREBASE && window.PD_FIREBASE.databaseURL) {
+      if (!firebase.apps.length) {
+        firebase.initializeApp(window.PD_FIREBASE);
+      }
+      window.firebaseApp = firebase.app();
+      window.firebaseDb = firebase.database();
+    }
+  </script>
+
+  <!-- Game Scripts -->
+  <script src="js/main.js" type="module"></script>
 </body>
 </html>
